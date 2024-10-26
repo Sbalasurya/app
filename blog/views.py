@@ -5,7 +5,14 @@ from django.urls import reverse
 # Create your views here.
 def index(request):
     #return HttpResponse("Hello from index page")
-    return render(request,"blog\index.html")
+    blog_title="Latest Posts"
+    posts=[
+        {'id':1 ,'title':'Post 1','content':'Content of post 1'},
+        {'id':2 ,'title':'Post 2','content':'Content of post 2'},
+        {'id':3 ,'title':'Post 3','content':'Content of post 3'},
+        {'id':4 ,'title':'Post 4','content':'Content of post 4'}
+    ]
+    return render(request,"blog\index.html", {'blog_title': blog_title, 'posts':posts})
 
 def detail(request, post_id):
     # return HttpResponse("You are viewing details page and id is {post_id}")
